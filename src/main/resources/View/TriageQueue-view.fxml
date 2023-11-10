@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="631.0" prefWidth="844.0" stylesheets="@../Css/Style.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.TriageQueueController">
+   <center>
+      <AnchorPane prefHeight="644.0" prefWidth="893.0" style="-fx-background-color: white;" stylesheets="@../Css/Style.css" BorderPane.alignment="CENTER">
+         <children>
+            <Text layoutX="24.0" layoutY="59.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Triage Queue">
+               <font>
+                  <Font name="System Bold" size="32.0" />
+               </font>
+            </Text>
+            <HBox layoutX="28.0" layoutY="64.0" prefHeight="38.0" prefWidth="792.0">
+               <children>
+                  <Label fx:id="resuscitationLbl" prefHeight="38.0" prefWidth="180.0" text="Resuscitation: ">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="emergencyLbl" prefHeight="38.0" prefWidth="168.0" text="Emergency: ">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="urgentLbl" prefHeight="38.0" prefWidth="137.0" text="Urgent:">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="sUrgentLbl" prefHeight="38.0" prefWidth="168.0" text="Semi-Urgent:">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="nUrgentLbl" prefHeight="38.0" prefWidth="154.0" text="Non-Urgent:">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Label>
+               </children>
+            </HBox>
+            <TableView fx:id="queueTable" layoutX="26.0" layoutY="102.0" prefHeight="200.0" prefWidth="795.0">
+              <columns>
+                <TableColumn fx:id="level" prefWidth="82.5" text="Prio Level" />
+                <TableColumn fx:id="name" prefWidth="141.0" text="Name" />
+                  <TableColumn fx:id="age" prefWidth="54.0" text="Age" />
+                  <TableColumn fx:id="gender" prefWidth="62.5" text="Gender" />
+                  <TableColumn fx:id="number" prefWidth="103.5" text="Contact number" />
+                  <TableColumn fx:id="complaint" prefWidth="181.0" text="Complaint" />
+                  <TableColumn fx:id="condition" prefWidth="169.5" text="Condition" />
+              </columns>
+               <effect>
+                  <DropShadow height="5.0" radius="2.0" width="5.0">
+                     <color>
+                        <Color red="0.7058823704719543" green="0.7058823704719543" blue="0.7058823704719543" />
+                     </color>
+                  </DropShadow>
+               </effect>
+            </TableView>
+            <ListView fx:id="listView1" layoutX="28.0" layoutY="400.0" prefHeight="145.0" prefWidth="258.0" />
+            <ListView fx:id="listView2" layoutX="296.0" layoutY="400.0" prefHeight="145.0" prefWidth="258.0" />
+            <ListView fx:id="listView3" layoutX="564.0" layoutY="400.0" prefHeight="145.0" prefWidth="258.0" />
+            <Label fx:id="treatingLbl1" layoutX="28.0" layoutY="370.0" text="Station 1 | Next Patient ">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <Label fx:id="treatingLbl2" layoutX="296.0" layoutY="370.0" text="Station 2 | Next Patient ">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <Button fx:id="nextPatientBtn" disable="true" layoutX="28.0" layoutY="553.0" mnemonicParsing="false" onAction="#nextPatient1" prefHeight="25.0" prefWidth="258.0" styleClass="btn1" text="Next Patient">
+               <effect>
+                  <DropShadow height="5.0" radius="2.0" width="5.0">
+                     <color>
+                        <Color red="0.7098039388656616" green="0.7058823704719543" blue="0.7058823704719543" />
+                     </color>
+                  </DropShadow>
+               </effect>
+            </Button>
+            <Label fx:id="treatingLbl3" layoutX="564.0" layoutY="370.0" text="Station 3 | Next Patient ">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <Button fx:id="nextPatientBtn2" disable="true" layoutX="295.0" layoutY="553.0" mnemonicParsing="false" onAction="#nextPatient2" prefHeight="25.0" prefWidth="260.0" styleClass="btn1" text="Next Patient">
+               <effect>
+                  <DropShadow height="5.0" radius="2.0" width="5.0">
+                     <color>
+                        <Color red="0.7098039388656616" green="0.7058823704719543" blue="0.7058823704719543" />
+                     </color>
+                  </DropShadow>
+               </effect>
+            </Button>
+            <Button fx:id="nextPatientBtn3" disable="true" layoutX="563.0" layoutY="553.0" mnemonicParsing="false" onAction="#nextPatient3" prefHeight="25.0" prefWidth="260.0" styleClass="btn1" text="Next Patient">
+               <effect>
+                  <DropShadow height="5.0" radius="2.0" width="5.0">
+                     <color>
+                        <Color red="0.7098039388656616" green="0.7058823704719543" blue="0.7058823704719543" />
+                     </color>
+                  </DropShadow>
+               </effect>
+            </Button>
+            <Button fx:id="treatBtn" disable="true" layoutX="176.0" layoutY="309.0" mnemonicParsing="false" onAction="#treatPatient" prefHeight="25.0" prefWidth="258.0" styleClass="btn1" stylesheets="@../Css/Style.css" text="Treat Patient">
+               <effect>
+                  <DropShadow height="5.0" radius="2.0" width="5.0">
+                     <color>
+                        <Color red="0.7098039388656616" green="0.7058823704719543" blue="0.7058823704719543" />
+                     </color>
+                  </DropShadow>
+               </effect>
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Button>
+            <Button fx:id="skipBtn" disable="true" layoutX="441.0" layoutY="309.0" mnemonicParsing="false" onAction="#skipPatient" prefHeight="25.0" prefWidth="258.0" styleClass="btn1" text="Skip Patient">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+               <effect>
+                  <DropShadow height="5.0" radius="2.0" width="5.0">
+                     <color>
+                        <Color red="0.7098039388656616" green="0.7058823704719543" blue="0.7058823704719543" />
+                     </color>
+                  </DropShadow>
+               </effect>
+            </Button>
+            <Line endX="698.0" layoutX="122.0" layoutY="358.0" startX="-100.0" stroke="#b5b4b4" />
+            <Button layoutX="-1.0" layoutY="587.0" mnemonicParsing="false" onAction="#back" style="-fx-background-color: Transparent; -fx-cursor: Hand;" text="Add Ticket">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+            </Button>
+            <Button fx:id="exit_btn" layoutX="795.0" layoutY="6.0" mnemonicParsing="false" onAction="#exit" prefHeight="36.0" prefWidth="49.0" style="-fx-background-color: transparent; -fx-cursor: hand;" styleClass="clearButton" stylesheets="@../Css/Style.css" text="X" textFill="#2f5f78">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+            </Button>
+         </children>
+      </AnchorPane>
+   </center>
+</BorderPane>
