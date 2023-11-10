@@ -150,6 +150,14 @@ public class PatientTicketingController {
     }
 
     public void addToQueue(){
+        if (patient == null || prioLevelCbo.getValue() == null) {
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Lacking Info");
+            alert.setHeaderText(null);
+            alert.setContentText("Please Select a Patient and Priority!");
+            alert.showAndWait();
+            return;
+        }
         TriageTicket ticket = new TriageTicket(patient, complaintTxtField.getText(),
                 conditionTxtField.getText(),prioLevelCbo.getValue(),currentMedTxtField.getText(), tqc.getCount());
         tqc.triageQueue.upHeap(ticket);
@@ -158,8 +166,10 @@ public class PatientTicketingController {
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle("Patient Added");
         alert.setHeaderText(null);
-        alert.setContentText(tqc.triageQueue.displayHeap()+"\n"+ Arrays.toString(tqc.counter)+"\n"+tqc.triageQueue.peek());
+        //alert.setContentText(tqc.triageQueue.displayHeap()+"\n"+ Arrays.toString(tqc.counter)+"\n"+tqc.triageQueue.peek());
+        alert.setContentText("Patient " + ticket.getName() + " has been added to the queue");
         alert.showAndWait();
+        patient = null;
         clearFields();
     }
 
