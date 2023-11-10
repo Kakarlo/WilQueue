@@ -63,8 +63,8 @@ public class TriageFormController {
 
     @FXML
     protected void addPatient(ActionEvent event) {
-        if(lastName_txtField == null || firstName_txtField == null || middle_txtField == null ||
-        contact_txtField == null || birthDate_datePicker == null || gender_cbo.getValue() == null){
+        if(lastName_txtField.getText() == null || firstName_txtField.getText() == null || middle_txtField.getText() == null ||
+        contact_txtField.getText() == null || birthDate_datePicker.getValue() == null || gender_cbo.getValue() == null){
             Alert alert = new Alert(Alert.AlertType.WARNING);
             alert.setTitle("Lacking Info");
             alert.setHeaderText(null);
@@ -142,7 +142,6 @@ public class TriageFormController {
     public void setReference(PatientTicketingController ptc){
         this.ptc = ptc;
     }
-
 
     public void initialize() {
         ObservableList<String> genderOptions = FXCollections.observableArrayList(

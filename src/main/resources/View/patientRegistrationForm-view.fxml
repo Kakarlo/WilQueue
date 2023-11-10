@@ -17,7 +17,7 @@
    <center>
       <AnchorPane prefHeight="538.0" prefWidth="1018.0" style="-fx-background-color: White;" BorderPane.alignment="CENTER">
          <children>
-            <TextField fx:id="lastName_textField" layoutX="58.0" layoutY="107.0" promptText="Last Name">
+            <TextField fx:id="lastName_textField" layoutX="58.0" layoutY="108.0" promptText="Last Name">
                <font>
                   <Font size="16.0" />
                </font>
@@ -42,17 +42,13 @@
                   <Font size="16.0" />
                </font>
             </TextField>
-            <Text fill="#2f5f78" layoutX="57.0" layoutY="240.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Address">
-               <font>
-                  <Font size="16.0" />
-               </font>
-            </Text>
-            <TextField fx:id="address_textField" layoutX="57.0" layoutY="247.0" prefHeight="36.0" prefWidth="616.0" promptText="Home Address">
+            <TextField fx:id="contact_textField" layoutX="58.0" layoutY="175.0" promptText="No.">
                <font>
                   <Font size="16.0" />
                </font>
             </TextField>
-            <Text fill="#2f5f78" layoutX="474.0" layoutY="164.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Gender">
+            <DatePicker fx:id="date_datePicker" layoutX="266.0" layoutY="175.0" prefHeight="36.0" prefWidth="198.5" promptText="mm/dd/yyyy" style="-fx-font-size: 16;" />
+            <Text fill="#2f5f78" layoutX="57.0" layoutY="240.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Address">
                <font>
                   <Font size="16.0" />
                </font>
@@ -66,17 +62,21 @@
                   </DropShadow>
                </effect>
             </ComboBox>
+            <TextField fx:id="address_textField" layoutX="57.0" layoutY="247.0" prefHeight="36.0" prefWidth="616.0" promptText="Home Address">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </TextField>
+            <Text fill="#2f5f78" layoutX="474.0" layoutY="164.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Gender">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Text>
             <Text fill="#2f5f78" layoutX="58.0" layoutY="164.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Contact Info">
                <font>
                   <Font size="16.0" />
                </font>
             </Text>
-            <TextField fx:id="contact_textField" layoutX="58.0" layoutY="175.0" promptText="No.">
-               <font>
-                  <Font size="16.0" />
-               </font>
-            </TextField>
-            <DatePicker fx:id="date_datePicker" layoutX="266.0" layoutY="175.0" prefHeight="36.0" prefWidth="198.5" promptText="mm/dd/yyyy" style="-fx-font-size: 16;" />
             <Text fill="#2f5f78" layoutX="266.0" layoutY="165.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Birth date">
                <font>
                   <Font size="16.0" />
@@ -97,6 +97,11 @@
                   <Font size="16.0" />
                </font>
             </Text>
+            <TextField fx:id="status_textField" layoutX="266.0" layoutY="317.0" promptText="Civil Status">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </TextField>
             <TextField fx:id="nationality_textField" layoutX="474.0" layoutY="317.0" promptText="Nationality">
                <font>
                   <Font size="16.0" />
@@ -113,11 +118,6 @@
                   <Font size="16.0" />
                </font>
             </Text>
-            <TextField fx:id="allergies_textField" layoutX="695.0" layoutY="104.0" prefHeight="36.0" prefWidth="263.0" promptText="Allergies">
-               <font>
-                  <Font size="16.0" />
-               </font>
-            </TextField>
             <Text fill="#2f5f78" layoutX="695.0" layoutY="165.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Current Medication/s">
                <font>
                   <Font size="16.0" />
@@ -128,16 +128,36 @@
                   <Font size="16.0" />
                </font>
             </Text>
-            <TextArea fx:id="medHistory_textarea" layoutX="695.0" layoutY="318.0" prefHeight="132.0" prefWidth="263.0" promptText="Medical History">
-               <font>
-                  <Font size="16.0" />
-               </font>
-            </TextArea>
             <TextField fx:id="emergencyName_textField" layoutX="58.0" layoutY="411.0" promptText="Name">
                <font>
                   <Font size="16.0" />
                </font>
             </TextField>
+            <TextField fx:id="contactNo2_textField" layoutX="266.0" layoutY="412.0" promptText="Contact Number">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </TextField>
+            <TextField fx:id="relationship_textField" layoutX="474.0" layoutY="412.0" promptText="Relationship">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </TextField>
+            <TextField fx:id="allergies_textField" layoutX="695.0" layoutY="104.0" prefHeight="36.0" prefWidth="263.0" promptText="Allergies">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </TextField>
+            <TextArea fx:id="currMed_textArea" layoutX="695.0" layoutY="173.0" prefHeight="111.0" prefWidth="263.0" promptText="Current Medication">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </TextArea>
+            <TextArea fx:id="medHistory_textarea" layoutX="695.0" layoutY="318.0" prefHeight="132.0" prefWidth="263.0" promptText="Medical History">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </TextArea>
             <Text fill="#2f5f78" layoutX="58.0" layoutY="401.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Emergency Contact">
                <font>
                   <Font size="16.0" />
@@ -155,27 +175,7 @@
                   </DropShadow>
                </effect>
             </Button>
-            <TextField fx:id="contactNo2_textField" layoutX="266.0" layoutY="412.0" promptText="Contact Number">
-               <font>
-                  <Font size="16.0" />
-               </font>
-            </TextField>
-            <TextField fx:id="relationship_textField" layoutX="474.0" layoutY="412.0" promptText="Relationship">
-               <font>
-                  <Font size="16.0" />
-               </font>
-            </TextField>
-            <TextArea fx:id="currMed_textArea" layoutX="695.0" layoutY="173.0" prefHeight="111.0" prefWidth="263.0" promptText="Current Medication">
-               <font>
-                  <Font size="16.0" />
-               </font>
-            </TextArea>
             <Line endX="-764.0" endY="272.0" layoutX="1435.0" layoutY="102.0" startX="-1377.5" startY="272.0" stroke="#b5b4b4" />
-            <TextField fx:id="status_textField" layoutX="266.0" layoutY="317.0" promptText="Civil Status">
-               <font>
-                  <Font size="16.0" />
-               </font>
-            </TextField>
             <Button fx:id="exit_btn" layoutX="934.0" layoutY="11.0" mnemonicParsing="false" onAction="#exit" prefHeight="36.0" prefWidth="49.0" style="-fx-background-color: transparent; -fx-cursor: hand;" styleClass="clearButton" stylesheets="@../Css/Style.css" text="X" textFill="#2f5f78">
                <font>
                   <Font name="System Bold" size="16.0" />

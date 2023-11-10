@@ -77,9 +77,9 @@ public class TriageQueue {
         } else return "Heap is empty!";
     }
 
-    public String deleteNode(int value) {
+    public String deleteNode(TriageTicket ticket) {
         // Removes the selected value
-        int nodeIndex = getIndex(value);
+        int nodeIndex = getIndex(ticket.getName() + ticket.getPriorityNumber());
         if (nodeIndex == -1) return "Value is not present within the heap";
         String hold = array[nodeIndex] + " has been removed from the heap";
         array[nodeIndex] = array[count--];
@@ -179,9 +179,9 @@ public class TriageQueue {
         return false;
     }//end of method
 
-    private int getIndex(int value) {
+    private int getIndex(String value) {
         for (int i = 1; i <= count; i++) {
-            if (array[i].getPriorityNumber() == value) {
+            if (value.equals(array[i].getName() + array[i].getPriorityNumber())) {
                 return i;
             }
         }//end of loop

@@ -142,9 +142,6 @@ public class TriageQueueController {
     private final boolean[] isStationAvailable = new boolean[3];
     private DataBase db;
     private final ObservableList<TriageTicket> patients = FXCollections.observableArrayList();
-    private final ObservableList<TriageTicket> station1 = FXCollections.observableArrayList();
-    private final ObservableList<TriageTicket> station2 = FXCollections.observableArrayList();
-    private final ObservableList<TriageTicket> station3 = FXCollections.observableArrayList();
 
     public void initialize() {
         loadQueue();
@@ -224,25 +221,44 @@ public class TriageQueueController {
     }
 
     public void nextPatient1() {
-        listView1.getItems().clear();
+        saveHistory(listView1.getItems().get(0));
+        listView1.getItems().remove(0);
         treatingLbl1.setText("Station 1 | Next Patient");
         nextPatientBtn.setDisable(true);
         isStationAvailable[0] = true;
     }
 
     public void nextPatient2() {
-        listView2.getItems().clear();
+        saveHistory(listView2.getItems().get(0));
+        listView2.getItems().remove(0);
         treatingLbl2.setText("Station 2 | Next Patient");
         nextPatientBtn2.setDisable(true);
         isStationAvailable[1] = true;
     }
 
     public void nextPatient3() {
-        listView3.getItems().clear();
+        saveHistory(listView3.getItems().get(0));
+        listView3.getItems().remove(0);
         treatingLbl3.setText("Station 3 | Next Patient");
         nextPatientBtn3.setDisable(true);
         isStationAvailable[2] = true;
 
+    }
+
+    public void saveHistory(TriageTicket t){
+        DataBase db = new DataBase("TriageHistory");
+        String hold = t.getPatientID() + "#" +
+                t.getPriorityLevel() + "#" +
+                t.getPatientNumber() + "#" +
+                t.getName() + "#" +
+                t.getAge() + "#" +
+                t.getGender() + "#" +
+                t.getNumber() + "#" +
+                t.getChiefComplaint() + "#" +
+                t.getCurrentCondition() + "#" +
+                t.getCounter() + "#" +
+                t.getPriorityNumber() + "\n";
+        db.addToFile(hold);
     }
 
     public void reduceCounter(String priorityLevel) {
@@ -273,6 +289,10 @@ public class TriageQueueController {
     public void saveState(){
         DataBase db = new DataBase("TriageQueueState");
         String hold = "";
+        // Returns the value back to the queue when unprocessed
+        if (!listView1.getItems().isEmpty()) triageQueue.upHeap(listView1.getItems().get(0));
+        if (!listView2.getItems().isEmpty()) triageQueue.upHeap(listView2.getItems().get(0));
+        if (!listView3.getItems().isEmpty()) triageQueue.upHeap(listView3.getItems().get(0));
         TriageTicket[] copy = triageQueue.heapSort();
         patients.clear();
         for (int i = 0; i < copy.length - 1; i++){
@@ -315,8 +335,29 @@ public class TriageQueueController {
             increaseCounter(t.getPriorityLevel());
             count = Math.max(t.getCounter(), count);
         }
-        System.out.println(Arrays.toString(counter));
         setLabels();
+    }
+
+    public void changePriority(TriageTicket ticket){
+        ChoiceDialog<String> cd = new ChoiceDialog<>();
+        ObservableList<String> priorityOptions = cd.getItems();
+        cd.setHeaderText("Priority Level:");
+        cd.setTitle("Change");
+        priorityOptions.add("Resuscitation");
+        priorityOptions.add("Emergency");
+        priorityOptions.add("Urgent");
+        priorityOptions.add("Semi-urgent");
+        priorityOptions.add("Non-urgent");
+        cd.showAndWait();
+        if (cd.getSelectedItem() == null) return;
+        if (!cd.getSelectedItem().equals(ticket.getPriorityLevel())){
+            triageQueue.deleteNode(ticket);
+            reduceCounter(ticket.getPriorityLevel());
+            ticket.setPriorityLevel(cd.getSelectedItem());
+            triageQueue.upHeap(ticket);
+            increaseCounter(ticket.getPriorityLevel());
+            loadTables();
+        }
     }
 
     public void initializeTables() {
@@ -327,6 +368,16 @@ public class TriageQueueController {
         number.setCellValueFactory(new PropertyValueFactory<>("number"));
         complaint.setCellValueFactory(new PropertyValueFactory<>("chiefComplaint"));
         condition.setCellValueFactory(new PropertyValueFactory<>("currentCondition"));
+        queueTable.setRowFactory(tv -> {
+            TableRow<TriageTicket> row = new TableRow<>();
+            row.setOnMouseClicked(event -> {
+                if (event.getClickCount() == 2 && (! row.isEmpty()) ) {
+                    TriageTicket rowData = row.getItem();
+                    changePriority(rowData);
+                }
+            });
+            return row ;
+        });
         queueTable.setItems(patients);
 
         listView1.setCellFactory(param -> new ListCell<TriageTicket>() {

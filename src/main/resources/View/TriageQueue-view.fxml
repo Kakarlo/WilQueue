@@ -140,7 +140,7 @@
                </effect>
             </Button>
             <Line endX="698.0" layoutX="122.0" layoutY="358.0" startX="-100.0" stroke="#b5b4b4" />
-            <Button layoutX="-1.0" layoutY="587.0" mnemonicParsing="false" onAction="#back" style="-fx-background-color: Transparent; -fx-cursor: Hand;" text="Add Ticket">
+            <Button layoutX="9.0" layoutY="588.0" mnemonicParsing="false" onAction="#back" style="-fx-cursor: Hand;" styleClass="button1" text="Add Ticket">
                <font>
                   <Font name="System Bold" size="16.0" />
                </font>

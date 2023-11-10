@@ -1,0 +1,9 @@
+1#Non-urgent#1#3#1#1#1#1#1#3#3
+1#Non-urgent#1#4#1#1#1#1#1#4#4
+0#Urgent#null#Menguita, Carlo .#20#Male#0987654321###1#-4
+0#Resuscitation#null#Smith, Wil S.#20#Male#0987654321###5#-10
+0#Emergency#null#Smith, Wil S.#20#Male#0987654321###2#-7
+0#Semi-urgent#null#Smith, Wilbert R.#20#Male#0987654321###3#0
+0#Non-urgent#null#Smith, Wil S.#20#Male#0987654321###4#4
+0#Emergency#null#Smith, Wil S.#20#Male#0987654321###2#-7
+0#Non-urgent#null#Smith, Wil S.#20#Male#0987654321###4#4

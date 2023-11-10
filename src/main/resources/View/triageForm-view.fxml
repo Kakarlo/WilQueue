@@ -81,7 +81,7 @@
                   </DropShadow>
                </effect>
             </Button>
-            <Button fx:id="openFull_btn" layoutX="236.0" layoutY="257.0" mnemonicParsing="false" onAction="#goToFullForm" style="-fx-background-color: transparent; -fx-cursor: hand;" text="Open Full Registration form" textFill="#2f5f78">
+            <Button fx:id="openFull_btn" layoutX="236.0" layoutY="257.0" mnemonicParsing="false" onAction="#goToFullForm" style="-fx-cursor: hand;" styleClass="button1" text="Open Full Registration form" textFill="#2f5f78">
                <font>
                   <Font size="16.0" />
                </font>
