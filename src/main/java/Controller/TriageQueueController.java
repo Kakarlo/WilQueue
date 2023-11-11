@@ -113,10 +113,10 @@ public class TriageQueueController {
 
         Scene newScene = new Scene(root);
         newStage.setScene(newScene);
-        newStage.centerOnScreen();
         newStage.initStyle(StageStyle.TRANSPARENT);
         newStage.setTitle("Triage Queue");
         newStage.show();
+        newStage.centerOnScreen();
 
         Stage currentStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         currentStage.setOpacity(0);
@@ -430,6 +430,7 @@ public class TriageQueueController {
         for (int i = 1; i <= triageQueue.getCount(); i++) {
             patients.add(copy[i]);
         }
+        queueTable.refresh();
         setLabels();
 
         // Sorted

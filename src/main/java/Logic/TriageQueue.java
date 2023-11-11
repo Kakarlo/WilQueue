@@ -201,11 +201,11 @@ public class TriageQueue {
         return hold;
     }//end of method
 
-    public TriageTicket[] getHeap(){
+    public TriageTicket[] getHeap() {
         return array;
     }
 
-    public int getCount(){
+    public int getCount() {
         return count;
     }
 
@@ -219,6 +219,7 @@ public class TriageQueue {
     public String peek() {
         return (isEmpty()) ? "Queue is Empty" : array[1].getInfo();
     }
+
     public TriageTicket poll() {
         if (isEmpty()) {
             return null; // or throw an exception based on your preference

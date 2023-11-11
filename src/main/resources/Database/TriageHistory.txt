@@ -7,3 +7,11 @@
 0#Non-urgent#null#Smith, Wil S.#20#Male#0987654321###4#4
 0#Emergency#null#Smith, Wil S.#20#Male#0987654321###2#-7
 0#Non-urgent#null#Smith, Wil S.#20#Male#0987654321###4#4
+0#Emergency#null#Acquiat, Gyrro q#0#Female#12043109243###2#-7
+0#Non-urgent#null#asdf, sdf s#0#Female#as###1#1
+0#Resuscitation#null#Smith, Wil S.#20#Male#0987654321###1#-14
+0#Urgent#null#Smith, Wilbert R.#20#Male#0987654321###1#-4
+0#Non-urgent#null#Lao, Shi C.#20#Male#0987654321###1#1
+0#Semi-urgent#null#Menguita, Carlo .#20#Male#0987654321###1#-2
+0#Urgent#null#Menguita, Carlo .#20#Male#0987654321###1#-4
+0#Urgent#null#Smith, Wilbert R.#20#Male#0987654321###1#-4

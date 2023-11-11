@@ -123,6 +123,7 @@ public class LogInController {
         stage.setTitle("Triage Queue");
         stage.setScene(scene);
         stage.show();
+        stage.centerOnScreen();
     }
 
     private void clear() {
